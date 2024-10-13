@@ -19,9 +19,25 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         spritePlayer = GetComponentInChildren<SpriteRenderer>();
+    }
+    private void Start()
+    {
+        // Obtener el punto de spawn guardado
+        string spawnPointName = PlayerPrefs.GetString("SpawnPoint", "");
+
+        // Si hay un punto de spawn guardado, mover al jugador allí
+        if (!string.IsNullOrEmpty(spawnPointName))
+        {
+            GameObject spawnPoint = GameObject.Find(spawnPointName);
+            if (spawnPoint != null)
+            {
+                transform.position = spawnPoint.transform.position;
+            }
+        }
     }
 
     private void FixedUpdate()
