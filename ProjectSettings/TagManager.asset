@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Orc
+  - Portal
   layers:
   - Default
   - TransparentFX

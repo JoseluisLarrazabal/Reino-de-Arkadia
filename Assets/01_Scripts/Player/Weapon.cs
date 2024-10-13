@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     private BoxCollider2D WeaponCollider;
+    public GameObject[] coins;
     void Start()
     {
         WeaponCollider = GetComponent<BoxCollider2D>();
@@ -15,6 +16,8 @@ public class Weapon : MonoBehaviour
         if (collision.CompareTag("Orc"))
         {
             Destroy(collision.gameObject);
+            int i = Random.Range(0, 2);
+            Instantiate(coins[i], transform.position, transform.rotation);
         }
     }
 }

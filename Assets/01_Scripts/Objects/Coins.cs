@@ -6,6 +6,7 @@ public class Coins : MonoBehaviour
 {
     public delegate void AddCoin(int coin);
     public static event AddCoin addCoin;
+    
 
     [SerializeField] private int coinQuantity;
 
